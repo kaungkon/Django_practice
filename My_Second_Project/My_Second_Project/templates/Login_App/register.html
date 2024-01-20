@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% extends "Login_App/base.html" %}
+{% load static %}
+{% block body_block %}
+{% if registered %}
+<div class="alert alert-success">Congratulations! Registration Successful!!</div>
+{% else %}
+<div class="container">
+    <form enctype="multipart/form-data" method="POST"><!--"enctype"= encrypt kore, kono file upload korte hole dite hobe -->
+        {{ user_form.as_p }}
+        {{ user_info_form.as_p }}
+        {% csrf_token %}
+        <input type="submit" name="submit" value="Register">
+    </form>
+</div> 
+{% endif %}
+{% endblock %}
